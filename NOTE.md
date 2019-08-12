@@ -1,12 +1,15 @@
 # JSConf 2019 - Re-Architecture Item Transaction Page and Sleep Well.
 
 ## Todo
+- [] Images to explain webview architecture
 - [] Big Text with animated background component (refer to Joshua's example).
 - [] Create dynamic illustration for four dimentional logic.
 - [] Create image of sample <--- ko if: condition > code
 - [] Create No image with big red cross
+- [] Put a Pie chart (Transactions cover shipping methods cover buyer & seller and both have progress states)
 - [] Get a screenshot for transaction page (with shipping progress inside)
-
+- [] Table for comparing display logic and business logic
+- 
 ## Greeting
 Hello everyone, my name is Paipo.
 
@@ -50,6 +53,10 @@ With all above being said, even worse thing came after:
 
 (Show Big Text with animated background)
 "Let's do Re-Architecture"
+
+## Mercari Webview Architecture
+- (img: Put a images here)
+- Explain how we do routing between new and old codebase here
 
 ## Re-Architecture - Target
 - Turn spaghetti code into more maintainable, readable, and less WTF code.
@@ -95,11 +102,6 @@ We go for Migrate Page by Page!
 ## Find the divisible unit
 - In order to migrate page by page, we need to find the divisible atomic unit first, and it should make sense from business and technical perspectives.
 
-### Target
-- Can be released as independent business case
-- Easy to co-work as team
-- Easy to add/remove
-
 (Show Previous Four dimensional business logic graph again)
 - (Illustrate with graph)
   - Buyer & Seller ? -> No (Image with big red cross) 
@@ -107,11 +109,78 @@ We go for Migrate Page by Page!
     - Hard to achieve open for extension and close for modification
     - (We can't avoid to modifying existing code)
     - Hard to cowork as team (easy to conflict with each other, modify the same piece of code)
+    - Match with code splitting (More on this later)
+  
   - Transaction Progress -> No (Image with big red cross)
     - It's just a certain state of the transaction journey, cannot be seen as a whole
     - It cannot exist without a transaction
+
+- Step back and think about our target first
+### Target
+  - Can be released as independent business case
+  - Easy to co-work as team
+  - Easy to add/remove
+
+## Divisible Unit
   - Transaction Type & Delivery Method Structure
     - Can be added/removed independently
     - Go through one complete user journey
     - Don't affect each other (Can be managed independently)
 
+
+(Show Big Text with animated background)
+"How to handle those logic🤔?"
+After finding the divisible unit and deciding the main structure, how to handle the logic in a easy-to-maintain, without making another plate of spaghetti?
+
+## Display Logic v.s Buiness Logic
+(img: create a comparing tables)
+### Display logic
+  - Different Data will show something different
+  - Decide **When** to show **What** (under current combination of state, what should we display to the user)
+  - Timing: Show the current transaction page based on the transaction data.
+  -  More Declarative.
+### Business logic
+  - Describe a step by step flow in order to accomplish a user scenario
+  - Timing: When the user tries to interact with the app, either make a payment, publish qrcode, or ship a item, anything
+  - More imperative.
+
+> Separate display logic from business logic,
+>   Separate declarative code from imperative code.
+
+
+(Show Big Text with animated background)
+"Different layers"
+
+## Flow chart to go through display logic
+
+## Flow chart to go through business logic
+
+## Component Layer
+
+## Error handling
+
+## Testing Strategies
+- Unit Test -> Storyshot, enzyme to test display logic
+- Sagas Test -> to test business logic
+- Cypress Test -> to test whole user flow (whole story) -> story as a cypress spec
+
+## Challenges
+- Adding new features and Doing Re-Architecture at the same time
+- Supported Platforms, Accessibilities
+  (As a leading second-handed marketplace app, we have to support wide range of platforms) -> we don't want to lose any market shares
+- Performance Issues -> Especially transaction page -> better code splitting and setting performance budget
+  
+## Current Result
+- 60% of item transaction page is migrated to new codebase.
+
+## Roadmap
+- Move to Web
+  - How putting business logic in sagas can help, how different layers of logic can help.
+- Apply Design System
+  - How Different unit of view component can help
+
+## Conclusions
+  - Architecture is about different layers, make reasonable decisions to separate layers can make your codebase easier to maintain and test.
+  - It's quite challenging to add new feature and do re-architecture at the same time, so better do one thing at a time.
+  - Don't make your spaghetti code another spaghetti with newly-added flavors.
+  
