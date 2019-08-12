@@ -2,13 +2,33 @@ import {Cite} from 'spectacle';
 import {DarkSlide, CodeSlide} from './slides';
 import RegularComponent from './regular-component';
 
-import avatar from '../assets/avatar.jpg';
+import mercari from '../assets/mercari-logo.png';
+
 
 # JSConf 2019
 
-Hello, I'm Paipo 🙌! 
+---
+import avatar from '../assets/avatar.jpg';
 
-<img src={avatar} style={{ width: '200px', height: '200px', borderRadius: '200px', objectFit: 'cover' }} />
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+  Hello, I'm Paipo 🙌!    
+  <img src={avatar} style={{ marginLeft: '15px', width: '200px', height: '200px', borderRadius: '200px', objectFit: 'cover' }} />
+</div>
+
+---
+import mercari from '../assets/mercari-logo.png';
+
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+  I work at <img src={mercari} style={{ width: '200px', objectFit: 'cover' }} />
+</div>
+
+---
+import marketplace from '../assets/marketplace.png';
+
+<div style={{ fontSize: '1.6rem'}}>Mercari is a C2C marketplace app, </div>
+<div style={{ fontSize: '1.6rem'}}>that allows users to enjoy buying and selling.</div>
+
+<img src={marketplace} style={{ width: '600px' }} />
 
 ---
 # Spectacle MDX!

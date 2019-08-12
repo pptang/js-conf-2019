@@ -27,7 +27,7 @@ const creeperTransition = (transitioning, forward) => {
 
 ReactDOM.render(
   <AppContainer errorReporter={CustomErrorReporter}>
-    <Deck transition={[creeperTransition]} transitionDuration={500} theme={theme} progress="none">
+    <Deck transition={['fade']} transitionDuration={500} theme={theme} progress="none">
       {slides.map((S, i) => {
         let transition = transitions[i] || null;
         return <S transition={transition} key={`slide-${i}`} />;
