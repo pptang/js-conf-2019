@@ -2,39 +2,32 @@ import createTheme from "../../createTheme";
 
 const colors = {
   primary: "white",
-  secondary: "#1F2022", // almost black w/ blueish tint
-  tertiary: "#fc300f", // bright red
-  quaternary: "#CECECE" // pale gray
+  secondary: "#19181F", // almost black w/ blueish tint
+  tertiary: "#ff00f6", // bright red
+  quaternary: "#CECECE", // pale gray
+  yellow: '#ffd000',
 };
 
 const theme = createTheme(colors, {
-    primary: "Montserrat",
-    secondary: "Helvetica"
+    primary: "Oswald",
+    secondary: "Merriweather"
   }, {
-    progress: {
-      pacmanTop: {
-        background: colors.quaternary
-      },
-      pacmanBottom: {
-        background: colors.quaternary
-      },
-      point: {
-        borderColor: colors.quaternary
-      }
-    },
     components: {
       heading: {
         h1: {
-          fontSize: '4rem',
-          textTransform: 'uppercase'
+          fontSize: '5rem',
+          textTransform: 'uppercase',
+          color: colors.tertiary,
         },
         h2: {
-          fontSize: '3.5rem',
-          textTransform: 'uppercase'
+          fontSize: '4rem',
+          textTransform: 'uppercase',
+          color: colors.yellow,
         },
         h3: {
-          fontSize: '3rem',
-          textTransform: 'uppercase'
+          fontSize: '3.5rem',
+          textTransform: 'uppercase',
+          color: colors.tertiary,
         },
         h4: {
           fontSize: '2.5rem',
