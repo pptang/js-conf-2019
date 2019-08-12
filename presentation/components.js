@@ -1,26 +1,29 @@
-import React, { createElement, Component } from 'react';
 import PropTypes from 'prop-types';
-
+import React, { Component, createElement } from 'react';
 import {
-  Heading,
-  Image,
+  BlockQuote,
   Code,
   CodePane,
-  BlockQuote,
+  Heading,
+  Image,
   Link,
   List,
   ListItem,
   Quote,
   S,
-  Text,
   Table,
-  TableHeader,
-  TableRow,
-  TableHeaderItem,
   TableBody,
-  TableItem
+  TableHeader,
+  TableHeaderItem,
+  TableItem,
+  TableRow,
+  Text
 } from 'spectacle';
+import styled from 'styled-components';
 
+const WrappedListItem = props => (
+  <ListItem style={{ color: '#FFF' }} {...props} />
+)
 
 const _Heading = size => {
   const component = ({ children }) => <Heading size={size}>{children}</Heading>;
@@ -48,6 +51,14 @@ const _CodePane = ({ children, language }) => (
 
 _CodePane.propTypes = { code: PropTypes.string, language: PropTypes.string };
 
+const Paragraph = styled.p`
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+`;
+
 export default {
   a: Link,
   blockquote: _CombineBlockQuote,
@@ -62,8 +73,8 @@ export default {
   h6: _Heading(6),
   img: Image,
   codespan: Code,
-  li: ListItem,
-  p: Text,
+  li: WrappedListItem,
+  p: Paragraph,
   strong: _S('bold'),
   ul: List,
   table: Table,
