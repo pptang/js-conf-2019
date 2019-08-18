@@ -1,17 +1,19 @@
-import createTheme from "../../createTheme";
+import createTheme from '../../createTheme'
 
 const colors = {
-  primary: "white",
-  secondary: "#19181F", // almost black w/ blueish tint
-  tertiary: "#ff00f6", // bright red
-  quaternary: "#CECECE", // pale gray
-  yellow: '#ffd000',
-};
+  primary: 'white',
+  secondary: 'rgb(32, 12, 37)', // almost black w/ blueish tint
+  tertiary: '#F19AAA', // bright red
+  yellow: 'rgb(254, 174, 2)',
+}
 
-const theme = createTheme(colors, {
-    primary: "Oswald",
-    secondary: "Merriweather"
-  }, {
+const theme = createTheme(
+  colors,
+  {
+    primary: 'Fira Sans',
+    secondary: 'Bree Serif',
+  },
+  {
     components: {
       heading: {
         h1: {
@@ -31,21 +33,22 @@ const theme = createTheme(colors, {
         },
         h4: {
           fontSize: '2.5rem',
-          textTransform: 'uppercase'
+          textTransform: 'uppercase',
         },
         h5: {
           fontSize: '2rem',
-          textTransform: 'uppercase'
+          textTransform: 'uppercase',
         },
         h6: {
           fontSize: '1.5rem',
-          textTransform: 'uppercase'
-        }
+          textTransform: 'uppercase',
+        },
       },
       codePane: {
-        fontSize: '2rem'
-      }
-    }
-  });
+        fontSize: '2rem',
+      },
+    },
+  }
+)
 
-export default theme;
+export default theme
