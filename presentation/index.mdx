@@ -4,12 +4,20 @@ import RegularComponent from './regular-component';
 import avatar from '../assets/avatar.jpg';
 import mercari from '../assets/mercari-logo.png';
 import marketplace from '../assets/marketplace.png';
+import codeSplitting from '../assets/code-splitting-by-divisible-unit.svg';
+import routing from '../assets/display-logic-route.svg';
+import blueprintLayer from '../assets/display-logic-blueprint-layer.svg';
+import dumbComponent from '../assets/display-logic-dumb-component.svg';
+import smartContainer from '../assets/display-logic-smart-containers.svg';
+import dispatchAction from '../assets/business-logic-dispatch-action.svg';
+import postMessageActionCreator from '../assets/business-logic-post-message-action-creator.svg';
+import postMessageSagas from '../assets/business-logic-post-message-sagas.svg';
+import rootSagas from '../assets/business-logic-root-sagas.svg';
 import Avatar from '../src/components/Avatar';
 
 import AnimationSlide from '../src/components/AnimationSlide';
 
 # JSConf 2019
-
 ---
 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white'}}>
   <p style={{marginRight: '20px'}}>Hello, I'm Paipo 🙌 </p>
@@ -108,6 +116,12 @@ Considering it's Transaction Page...
 
 ---
 
+## Map to code splitting
+
+<img src={codeSplitting} style={{ width: '1000px' }} />
+
+---
+
 # "How to handle those logic🤔?"
 
 ---
@@ -116,8 +130,119 @@ Considering it's Transaction Page...
 
 ---
 
-...
+<AnimationSlide title="Power of Layers"/>
 
+---
+
+# Let's go through the whole business scenario first!
+
+---
+
+## After an item is bought...
+As a buyer, I want to check my transaction page.
+
+---
+
+## Maybe I want to do sth with it later...
+But I first I need to see it first.
+
+---
+
+## Cuz it's a webview, so the way to entry is a url
+<img src={routing} style={{ width: '800px' }} />
+
+---
+
+## Blueprint Layer to show the overall layout
+<img src={blueprintLayer} style={{ width: '800px' }} />
+
+---
+
+## Smart Container to handle display logic
+<img src={smartContainer} style={{ width: '800px' }} />
+
+---
+
+## Dumb Component to be minumum display unit (atomic, discuss with designer, storybook)
+<img src={dumbComponent} style={{ width: '800px' }} />
+
+---
+
+# Display Logic
+
+---
+
+## Let's think about next possible flow
+
+---
+
+As a buyer, I'd like to ask a question about the product I want to buy.
+
+---
+
+1. I'll type in the message in the comment box.
+2. I'll see a dialog box confirming if I really want to send this message.
+3. After clicking confirmed button, I expect my message will be sent and stored some whatever
+4. If something goes wrong, I expect to see some error messages.
+5. If everything goes well, I expect to see all sent messages on the page.
+
+---
+
+<img src={dispatchAction} style={{ width: '800px' }} />
+
+
+---
+
+<img src={postMessageActionCreator} style={{ width: '800px' }} />
+
+
+---
+
+<img src={rootSagas} style={{ width: '800px' }} />
+
+
+---
+
+<img src={postMessageSagas} style={{ width: '800px' }} />
+
+---
+
+# Business Logic
+
+---
+
+Separate imperative from declarative!
+(Although you can argue that even if you isolate the business logic inside sagas, those should still be written in a declarative way,
+but I personally think declarative is more like relative concept, you can always to be more abstract and more high-level speaking of writing code,
+but the UI and the display of a page are inherently more declarative than other logics. We describe UI as "There is XXX on the page" and "There is a XXX button here",
+it cannot be the other way around.)
+Benefit:
+1. When tracing issues, it would be easier to pinpoint the problem
+2. Easier to write test (different test strategy, re-think the legacy code which mix ko-if with ui)
+
+---
+
+<AnimationSlide title="The Quality Assurance of your sleep"/>
+
+---
+(Table)
+
+Display Logic vs Business Logic
+Display:
+  - show the transaction page
+   - BluePrint Layer -> Enzyme with shallow rendering
+   - Smart Container Layer -> No test (too brittle)
+   - Dumb Component -> Storyshot
+Business Logic:
+  - Sagas test -> the use scenario I mentioned before
+End to end test:
+  - Use describe chat as example -> make it the same as the use scenario I mentioned before
+
+---
+
+Storyshot -> hard to read but sometimes still catch some bad rendering result
+Sagas test -> Really hard to read and maintain -> thinking to remove
+E2E tests -> Easy to read and good protection of the codebase
 ---
 
 ## Testing Strategies
@@ -154,6 +279,14 @@ Considering it's Transaction Page...
 ## Conclusions
 - Architecture is about different layers, make reasonable decisions to separate layers can make your codebase easier to maintain and test.
 - It's quite challenging to add new feature and do re-architecture at the same time, so better do one thing at a time.
+
+---
+
+## Key Takeaways
+
+- How to model your problems, find possible solutions and go for one which suits you best.
+- How to separate the concern, make good use of different layers for better team workign and easy-to-maintain codebase.
+- How to utilize different strategies for testing and sleep well.
 
 ---
 
