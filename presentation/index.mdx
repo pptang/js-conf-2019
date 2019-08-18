@@ -13,6 +13,9 @@ import dispatchAction from '../assets/business-logic-dispatch-action.svg';
 import postMessageActionCreator from '../assets/business-logic-post-message-action-creator.svg';
 import postMessageSagas from '../assets/business-logic-post-message-sagas.svg';
 import rootSagas from '../assets/business-logic-root-sagas.svg';
+import testStoryShots from '../assets/test-storyshots.svg';
+import testSagas from '../assets/test-sagas.svg';
+import testE2e from '../assets/test-e2e-cypress.svg';
 import Avatar from '../src/components/Avatar';
 
 import AnimationSlide from '../src/components/AnimationSlide';
@@ -56,7 +59,7 @@ Every marketplace app has a common problem...
 ---
 
 ## What makes heavy business logic?
-
+(Illustration)
 - Buyer & Seller
 - Different types of transaction (clothes, smartphone, furniture, car)
 - Different Delivery Methods
@@ -69,6 +72,7 @@ Every marketplace app has a common problem...
 ---
 
 ## Mercari Webview Architecture
+(Draw artchitecture)
 
 ---
 
@@ -105,7 +109,12 @@ Considering it's Transaction Page...
 
 ---
 
+# Single File Application
+
+---
+
 # Find the divisible unit
+(Draw pie chart)
 
 ---
 
@@ -149,22 +158,34 @@ But I first I need to see it first.
 ---
 
 ## Cuz it's a webview, so the way to entry is a url
-<img src={routing} style={{ width: '800px' }} />
+
+---
+
+<img src={routing} style={{ width: '1000px' }} />
 
 ---
 
 ## Blueprint Layer to show the overall layout
-<img src={blueprintLayer} style={{ width: '800px' }} />
+
+---
+
+<img src={blueprintLayer} style={{ width: '1000px' }} />
 
 ---
 
 ## Smart Container to handle display logic
-<img src={smartContainer} style={{ width: '800px' }} />
+
+---
+
+<img src={smartContainer} style={{ width: '1000px' }} />
 
 ---
 
 ## Dumb Component to be minumum display unit (atomic, discuss with designer, storybook)
-<img src={dumbComponent} style={{ width: '800px' }} />
+
+---
+
+<img src={dumbComponent} style={{ width: '1000px' }} />
 
 ---
 
@@ -188,22 +209,22 @@ As a buyer, I'd like to ask a question about the product I want to buy.
 
 ---
 
-<img src={dispatchAction} style={{ width: '800px' }} />
+<img src={dispatchAction} style={{ width: '1000px' }} />
 
 
 ---
 
-<img src={postMessageActionCreator} style={{ width: '800px' }} />
+<img src={postMessageActionCreator} style={{ width: '1000px' }} />
 
 
 ---
 
-<img src={rootSagas} style={{ width: '800px' }} />
+<img src={rootSagas} style={{ width: '1000px' }} />
 
 
 ---
 
-<img src={postMessageSagas} style={{ width: '800px' }} />
+<img src={postMessageSagas} style={{ width: '1000px' }} />
 
 ---
 
@@ -240,9 +261,22 @@ End to end test:
 
 ---
 
+<img src={testStoryShots} style={{ width: '1000px' }} />
+
+---
+
+<img src={testSagas} style={{ width: '1000px' }} />
+
+---
+
+<img src={testE2e} style={{ width: '1000px' }} />
+
+---
+
 Storyshot -> hard to read but sometimes still catch some bad rendering result
 Sagas test -> Really hard to read and maintain -> thinking to remove
 E2E tests -> Easy to read and good protection of the codebase
+
 ---
 
 ## Testing Strategies
@@ -294,4 +328,4 @@ E2E tests -> Easy to read and good protection of the codebase
 
 ---
 
-# Thank you!
+# Thank you! (twitter) (medium)
