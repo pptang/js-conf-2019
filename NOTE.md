@@ -9,7 +9,7 @@
 - [] Put a Pie chart (Transactions cover shipping methods cover buyer & seller and both have progress states)
 - [] Get a screenshot for transaction page (with shipping progress inside)
 - [] Table for comparing display logic and business logic
-- 
+-
 ## Greeting
 Hello everyone, my name is Paipo.
 
@@ -22,7 +22,7 @@ This is the company I'm working at, which is called Mercari.
 
 Mercari is a C2C MarketPlace App which allows users to enjoy buying and selling.
 
-Our core values is to create an easy-to-use online environment where everyone can create values by buying or selling. 
+Our core values is to create an easy-to-use online environment where everyone can create values by buying or selling.
 
 ## Every marketplace app has a common problem
 
@@ -36,7 +36,7 @@ Our core values is to create an easy-to-use online environment where everyone ca
 - A lot of business logic involved
 
 ## What makes heavy business logic?
-(Illustrate with graph)
+(Illustrate with graph) -> Done
 - Buyer & Seller
 - Different types of transaction (clothes, smartphone, furniture, car)
 - Different Delivery Methods
@@ -55,7 +55,7 @@ With all above being said, even worse thing came after:
 "Let's do Re-Architecture"
 
 ## Mercari Webview Architecture
-- (img: Put a images here)
+- (img: Put a images here -> find a image with shipping progress)
 - Explain how we do routing between new and old codebase here
 
 ## Re-Architecture - Target
@@ -96,7 +96,7 @@ We go for Migrate Page by Page!
 - Hard to maintain (trace) the code
   - Bad encapsulation (show many Hows in the code instead what or why)
   - Magic numbers, literal strings are scattered everywhere
-  
+
 (Show Big Text with animated background)
 "Start Migrating!"
 ## Find the divisible unit
@@ -104,13 +104,13 @@ We go for Migrate Page by Page!
 
 (Show Previous Four dimensional business logic graph again)
 - (Illustrate with graph)
-  - Buyer & Seller ? -> No (Image with big red cross) 
+  - Buyer & Seller ? -> No (Image with big red cross)
     - The scope would be too huge
     - Hard to achieve open for extension and close for modification
     - (We can't avoid to modifying existing code)
     - Hard to cowork as team (easy to conflict with each other, modify the same piece of code)
     - Match with code splitting (More on this later)
-  
+
   - Transaction Progress -> No (Image with big red cross)
     - It's just a certain state of the transaction journey, cannot be seen as a whole
     - It cannot exist without a transaction
@@ -169,7 +169,7 @@ After finding the divisible unit and deciding the main structure, how to handle 
 - Supported Platforms, Accessibilities
   (As a leading second-handed marketplace app, we have to support wide range of platforms) -> we don't want to lose any market shares
 - Performance Issues -> Especially transaction page -> better code splitting and setting performance budget
-  
+
 ## Current Result
 - 60% of item transaction page is migrated to new codebase.
 
@@ -183,4 +183,3 @@ After finding the divisible unit and deciding the main structure, how to handle 
   - Architecture is about different layers, make reasonable decisions to separate layers can make your codebase easier to maintain and test.
   - It's quite challenging to add new feature and do re-architecture at the same time, so better do one thing at a time.
   - Don't make your spaghetti code another spaghetti with newly-added flavors.
-  

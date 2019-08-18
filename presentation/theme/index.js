@@ -2,9 +2,9 @@ import createTheme from '../../createTheme'
 
 const colors = {
   primary: 'white',
-  secondary: 'rgb(32, 12, 37)', // almost black w/ blueish tint
+  secondary: '#200C25', // almost black w/ blueish tint
   tertiary: '#F19AAA', // bright red
-  yellow: 'rgb(254, 174, 2)',
+  yellow: '#FEAE02',
 }
 
 const theme = createTheme(
