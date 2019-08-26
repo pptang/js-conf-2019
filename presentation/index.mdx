@@ -76,6 +76,24 @@ Every marketplace app has a common problem...
 
 ---
 
+## Problems for current codebase
+
+- Background
+  - Knockpout.js + jQuery + HTML/CSS
+- A huge file with all business logic
+  - (img: Show lines of code screen shot)
+- Mix business logic and display logic in an imperative way
+  - (img: show sample ko if: html code)
+- Hard to maintain (trace) the code
+  - Bad encapsulation (show many Hows in the code instead what or why)
+  - Magic numbers, literal strings are scattered everywhere
+
+---
+
+# Single File Application
+
+---
+
 ## Re-Architecture - Target
 
 - Turn spaghetti code into more maintainable, readable, and less WTF code.
@@ -95,26 +113,7 @@ Considering it's Transaction Page...
 
 ---
 
-## Problems for current codebase
-
-- Background
-  - Knockpout.js + jQuery + HTML/CSS
-- A huge file with all business logic
-  - (img: Show lines of code screen shot)
-- Mix business logic and display logic in an imperative way
-  - (img: show sample ko if: html code)
-- Hard to maintain (trace) the code
-  - Bad encapsulation (show many Hows in the code instead what or why)
-  - Magic numbers, literal strings are scattered everywhere
-
----
-
-# Single File Application
-
----
-
 # Find the divisible unit
-(Draw pie chart)
 
 ---
 
