@@ -1,0 +1,1 @@
+const transactionType = yield call(api.getTransactionType, itemId);
