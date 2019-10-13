@@ -1,0 +1,11 @@
+- Business Problems Statement
+- Asked to do Re-Architecture Project
+- How we do it?
+  - Analyze current problem
+  - Start from scratch or migrate page by page
+  - Find minimum divisible unit
+  - How to work with old codebase
+  - How to architect the application by layers
+  - Separate the display and business logic
+  - Testing strategies
+- Conclusions   
