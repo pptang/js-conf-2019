@@ -1,8 +1,6 @@
-// Smart Containers
 const CommentBox = ({
   shouldDisableSentButton,
   messages,
-  // ...some more props
 }) => {
   if (someBranchingLogic) {
     return <CommentBoxTypeOne />;
@@ -10,16 +8,18 @@ const CommentBox = ({
   return <CommentBoxTypeTwo />;
 }
 
-const mapStateToProps = ({ transactionData }: Store) => ({
-  // ...some display logic,
-  shouldDisableSentButton: true,
-  // ...some data calculation for display
+const mapStateToProps = ({ transactionData }) => ({
+  shouldDisableSentButton: transactionData.comment.isDisabled,
   messages: someCalculation(transactionData.messages),
-  // ...more state from the store
 });
 
-const mapDispatchToProps = () => ({
-  // ...dispatch actions
+const mapDispatchToProps = (dispatch) => ({
+  postMessage: (message) => {
+    dispatch({
+      type: 'POST_MESSAGE_REQUESTED',
+      payload: { message}
+    });
+  },
 });
 
 export default connect(

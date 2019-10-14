@@ -20,9 +20,7 @@ const describeChatForSeller = () => {
           .siblings('button')
           .click();
         // 2. I'll see a dialog box...
-        // More assertions on business logic
       });
-      // More User Scenario...
     });
   });
 }
